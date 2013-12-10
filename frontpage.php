@@ -83,8 +83,8 @@ Template Name: Frontpage
 	}
 
 	$(document).ready(function(){
-		var timer = setInterval('nextSlide()', 4000);
-		$('.slide').hover(function(){ clearInterval(timer); }, function() { timer = setInterval('nextSlide()', 4000); });
+		var timer = setInterval('nextSlide()', 6000);
+		$('.slide').hover(function(){ clearInterval(timer); }, function() { timer = setInterval('nextSlide()', 6000); });
 	});
 
 </script>
