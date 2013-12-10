@@ -1,4 +1,344 @@
 <?php
+
+function associatedemployers_customize_register( $wp_customize ) {
+	//controls for theme (like the slider) C:
+	$wp_customize->add_section(
+		'slider_section',
+		array(
+			'title' => __( 'Slider Content', 'associatedemployers' ),
+			'capability' => 'edit_theme_options',
+			'description' => __( 'Edit the slider content', 'associatedemployers' )
+			)
+	);
+	//SLIDE 1
+	$wp_customize->add_setting(
+		'ae_options[slider_slide1_heading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide1_heading]',
+		array(
+			'label' => 'Slide 1 Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '1'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide1_subheading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide1_subheading]',
+		array(
+			'label' => 'Slide 1 Sub-Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '2'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide1_image]',
+		array(
+			'default' => 'image.jpg',
+			'capability' => 'edit_theme_options',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control($wp_customize, 'slider_slide1_image',
+		array(
+			'label' => __('Slide 1 Image', 'associatedemployers'),
+			'section' => 'slider_section',
+			'settings' => 'ae_options[slider_slide1_image]',
+			'priority' => '3'
+			)
+		)
+	);
+	//SLIDE 2
+	$wp_customize->add_setting(
+		'ae_options[slider_slide2_heading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide2_heading]',
+		array(
+			'label' => 'Slide 2 Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '4'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide2_subheading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide2_subheading]',
+		array(
+			'label' => 'Slide 2 Sub-Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '5'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide2_image]',
+		array(
+			'default' => 'image.jpg',
+			'capability' => 'edit_theme_options',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control($wp_customize, 'slider_slide2_image',
+		array(
+			'label' => __('Slide 2 Image', 'associatedemployers'),
+			'section' => 'slider_section',
+			'settings' => 'ae_options[slider_slide2_image]',
+			'priority' => '6'
+			)
+		)
+	);
+	//SLIDE 3
+	$wp_customize->add_setting(
+		'ae_options[slider_slide3_heading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide3_heading]',
+		array(
+			'label' => 'Slide 3 Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '7'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide3_subheading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide3_subheading]',
+		array(
+			'label' => 'Slide 3 Sub-Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '8'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide3_image]',
+		array(
+			'default' => 'image.jpg',
+			'capability' => 'edit_theme_options',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control($wp_customize, 'slider_slide3_image',
+		array(
+			'label' => __('Slide 3 Image', 'associatedemployers'),
+			'section' => 'slider_section',
+			'settings' => 'ae_options[slider_slide3_image]',
+			'priority' => '9'
+			)
+		)
+	);
+	//SLIDE 4
+	$wp_customize->add_setting(
+		'ae_options[slider_slide4_heading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide4_heading]',
+		array(
+			'label' => 'Slide 4 Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '10'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide4_subheading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide4_subheading]',
+		array(
+			'label' => 'Slide 4 Sub-Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '11'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide4_image]',
+		array(
+			'default' => 'image.jpg',
+			'capability' => 'edit_theme_options',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control($wp_customize, 'slider_slide4_image',
+		array(
+			'label' => __('Slide 4 Image', 'associatedemployers'),
+			'section' => 'slider_section',
+			'settings' => 'ae_options[slider_slide4_image]',
+			'priority' => '12'
+			)
+		)
+	);
+	//SLIDE 5
+	$wp_customize->add_setting(
+		'ae_options[slider_slide5_heading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide5_heading]',
+		array(
+			'label' => 'Slide 5 Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '13'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide5_subheading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide5_subheading]',
+		array(
+			'label' => 'Slide 5 Sub-Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '14'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide5_image]',
+		array(
+			'default' => 'image.jpg',
+			'capability' => 'edit_theme_options',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control($wp_customize, 'slider_slide5_image',
+		array(
+			'label' => __('Slide 5 Image', 'associatedemployers'),
+			'section' => 'slider_section',
+			'settings' => 'ae_options[slider_slide5_image]',
+			'priority' => '15'
+			)
+		)
+	);
+	//SLIDE 6
+	$wp_customize->add_setting(
+		'ae_options[slider_slide6_heading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide6_heading]',
+		array(
+			'label' => 'Slide 6 Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '16'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide6_subheading]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide6_subheading]',
+		array(
+			'label' => 'Slide 6 Sub-Heading',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '17'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide6_image]',
+		array(
+			'default' => 'image.jpg',
+			'capability' => 'edit_theme_options',
+			'type' => 'option'
+			)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Image_Control($wp_customize, 'slider_slide6_image',
+		array(
+			'label' => __('Slide 6 Image', 'associatedemployers'),
+			'section' => 'slider_section',
+			'settings' => 'ae_options[slider_slide6_image]',
+			'priority' => '18'
+			)
+		)
+	);
+}
+add_action( 'customize_register', 'associatedemployers_customize_register' );
+
+function ae_options($name, $default = false) {
+	$options = ( get_option( 'ae_options' ) ) ? get_option( 'ae_options' ) : null; // return the option if it exists
+	if(isset( $options[ $name ] )) {
+		return apply_filters( 'ae_options_$name', $options[ $name ] );
+	}
+	return apply_filters( 'ae_options_$name', $default );
+}
+
 add_filter( 'rewrite_rules_array','my_insert_rewrite_rules' );
 add_filter( 'query_vars','my_insert_query_vars' );
 add_action( 'wp_loaded','my_flush_rules' );
@@ -17,15 +357,11 @@ function blackbox_disable() {
     }
 }
 
-
-
 add_action( 'init', 'register_shortcodes');
 function register_shortcodes(){ add_shortcode('google-map', 'googlemap'); }
 function googlemap() { return '<iframe width="560" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?ie=UTF8&amp;q=Associated+Employers+2727+Central+Avenue,+Suite2+Billings,+Montana+59102&amp;fb=1&amp;gl=us&amp;hq=Associated+Employers+2727+Central+Avenue,+Suite2+Billings,+Montana+59102&amp;cid=0,0,9949643869833810416&amp;t=m&amp;ll=45.770187,-108.581743&amp;spn=0.008981,0.024033&amp;z=15&amp;iwloc=near&amp;output=embed"></iframe>'; }
 
 if(function_exists('register_sidebar')) { register_sidebar(array('name' => __('Sidebar Widget Area'), 'id' => 'sidebarwidgetarea', 'description' => __('Widget container for the Sidebar', 'twentyeleven'))); }
-
-
 
 function content($limit) {
 	$content = explode(' ', get_the_content());
@@ -43,20 +379,11 @@ function content($limit) {
 	$content = trim(strip_tags($content)) . '&hellip; ';
 	return $content;
 }
-
 //get attribute from html tag
 function getAttribute($attrib, $tag){ $re = '/' . preg_quote($attrib) . '=([\'"])?((?(1).+?|[^\s>]+))(?(1)\1)/is'; if (preg_match($re, $tag, $match)) { return $match[2]; } return false; }
 
-
-
-
-
-
-
-///////////////////////////////////////////////
 ///////////////////////////////////////////////
 // EDIT PROFILE
-///////////////////////////////////////////////
 ///////////////////////////////////////////////
 
 //Edit Profile - Company
@@ -107,7 +434,6 @@ function ep_alt_phone($value){ global $wpdb; session_start(); $sql = "SELECT pho
 add_filter("gform_field_value_f3_fax", "ep_fax", 10, 3);
 function ep_fax($value){ global $wpdb; session_start(); $sql = "SELECT fax FROM ae_company WHERE id = " . $_SESSION['comp_id']; $result = $wpdb->get_results($wpdb->prepare($sql, 0)); if($result) { return $result[0]->fax; } }
 
-
 add_filter('gform_after_submission_3', 'profile_after_submission', 10, 3);
 function profile_after_submission($entry, $form) {
 	global $wpdb; session_start();
@@ -133,14 +459,8 @@ function profile_after_submission($entry, $form) {
 		WHERE id = " . $_SESSION['comp_id'];
 	$result = $wpdb->get_results($wpdb->prepare($sql, 0));
 }
-
-
-
-
-///////////////////////////////////////////////
 ///////////////////////////////////////////////
 // EDIT SUB ACCOUNT
-///////////////////////////////////////////////
 ///////////////////////////////////////////////
 //Edit Sub Account - First Name
 add_filter("gform_field_value_f2_first_name", "es_first_name", 10, 2);
@@ -155,7 +475,6 @@ function es_first_name($value){
 		if($result) { return $result[0]->first_name; }
 	}
 }
-
 //Edit Sub Account - Last Name
 add_filter("gform_field_value_f2_last_name", "es_last_name", 10, 2);
 function es_last_name($value){
@@ -169,7 +488,6 @@ function es_last_name($value){
 		if($result) { return $result[0]->last_name; }
 	}
 }
-
 //Edit Sub Account - Email
 add_filter("gform_field_value_f2_email", "es_email", 10, 2);
 function es_email($value){
@@ -183,7 +501,6 @@ function es_email($value){
 		if($result) { return $result[0]->email; }
 	}
 }
-
 //Edit Sub Account - Phone
 add_filter("gform_field_value_f2_phone", "es_phone", 10, 2);
 function es_phone($value){
@@ -197,7 +514,6 @@ function es_phone($value){
 		if($result) { return $result[0]->phone; }
 	}
 }
-
 //Edit Sub Account - Alt. Phone
 add_filter("gform_field_value_f2_alt_phone", "es_alt_phone", 10, 2);
 function es_alt_phone($value){
@@ -211,7 +527,6 @@ function es_alt_phone($value){
 		if($result) { return $result[0]->phone_alt; }
 	}
 }
-
 //Edit Sub Account - Fax
 add_filter("gform_field_value_f2_fax", "es_fax", 10, 2);
 function es_fax($value){
@@ -225,8 +540,6 @@ function es_fax($value){
 		if($result) { return $result[0]->fax; }
 	}
 }
-
-
 add_filter('gform_after_submission_2', 'user_after_submission', 10, 2);
 function user_after_submission($entry, $form) {
 	global $wpdb;
@@ -253,15 +566,9 @@ function user_after_submission($entry, $form) {
 
 	$result = $wpdb->get_results($wpdb->prepare($sql, 0));
 }
-
-
-
-///////////////////////////////////////////////
 ///////////////////////////////////////////////
 // New Member
 ///////////////////////////////////////////////
-///////////////////////////////////////////////
-
 add_filter('gform_after_submission_5', 'newmember_after_submission', 10, 5);
 function newmember_after_submission($entry, $form) {
 	global $wpdb; session_start();
@@ -284,16 +591,8 @@ function newmember_after_submission($entry, $form) {
 	('$company', '$address', '$address2', '$city', '$state', '$zip', '$first_name', '$last_name', '$email', '$phone', '$phone_alt', '$fax', MD5('" . $password . "'), 1)";
 	$result = $wpdb->get_results($wpdb->prepare($sql, 0));
 }
-
-
-
-
-
-
-///////////////////////////////////////////////
 ///////////////////////////////////////////////
 // RENEWALS
-///////////////////////////////////////////////
 ///////////////////////////////////////////////
 add_filter("gform_field_value_f4_company_name", "renw_company", 10, 4);
 function renw_company($value){
@@ -302,49 +601,22 @@ function renw_company($value){
 	$result = $wpdb->get_results($wpdb->prepare($sql, 0));
 	if($result) { return $result[0]->company; }
 }
-
-
 add_filter('gform_after_submission_2', 'renewal_after_submission', 10, 2);
 function renewal_after_submission($entry, $form) {
 	// Possibly update payment_due_date in ae_company
 	// table with 1 extra year from stored date/now.
-
-
 }
-
-
-
-
-
-
-
-
-
-
 add_filter("gform_submit_button", "form_submit_button", 10, 2);
 function form_submit_button($button, $form){
 	global $wpdb; global $wp_query;
 	$value = getAttribute('value', $button);
-
 	$id = $wp_query->query_vars['user_edit'];
 	if($id && is_page('add-sub-accounts')) { $value = 'Update Account'; }
-
 	return "<button class='button btn btn-primary' id='gform_submit_button_{$form["id"]}'><span>{$value}</span></button>";
 }
-
-
-
-
-
 //Hides SSL warning for testing purposes only
 add_filter("gform_is_ssl", "set_ssl");
 function set_ssl() { return true; }
-
-
-
-
-
-
 
 add_filter('gform_pre_render_7', 'populate_webinars');
 function populate_webinars ($form) {
@@ -361,10 +633,6 @@ function populate_webinars ($form) {
 	$form['fields'][6]['choices'] = $webinars;
 	return $form;
 }
-
-
-
-
 add_action("gform_confirmation_8", "after_submission", 10, 8);
 function after_submission($confirmation, $form, $lead, $ajax) {
 	global $wpdb;
@@ -372,7 +640,6 @@ function after_submission($confirmation, $form, $lead, $ajax) {
 	//$ajax = true;
 	$sql = "SELECT * FROM wp_webinar_code LEFT JOIN wp_webinars ON wp_webinar_code.webinar_id = wp_webinars.id WHERE webinar_code = '$code'";
 	$results = $wpdb->get_results($wpdb->prepare($sql));
-
 	if(!empty($results) && ($results[0]->expiration_date >= date('Y-m-d') || $results[0]->expiration_date == NULL)) {
 		$confirmation = '<h1>' . $results[0]->title . '</h1>
 			<video class="sublime" width="640" height="360" title="Present Party" data-uid="a240e92d" data-autoresize="fit">
@@ -383,19 +650,13 @@ function after_submission($confirmation, $form, $lead, $ajax) {
 	} else {
 		$confirmation = 'Webinar code is expired.';
 	}
-
 	return $confirmation;
 }
-
-
-
-
 add_filter('gform_notification_7', 'gform_notification', 10, 7);
 function gform_notification( $notification, $form, $entry ) {
 	if($notification["to"] != '{admin_email}') {
 		global $wpdb;
 		$notification['message'] = 'Please use the following codes to view purchased webinar(s) on our "webinars for purchase" page\n';
-
 		for($i = 1; $i <= 20; $i++) { // Change if increase max number of webinars (increase Gforms checkboxes count)
 			if($entry["11.$i"] != '') {
 				$exploded = explode('|', $entry["11.$i"]); // value from price
@@ -436,30 +697,6 @@ function gform_notification( $notification, $form, $entry ) {
 
 	return $notification;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Removes Entries from the Database
 //add_action('gform_post_submission_1', 'remove_form_entry', 10, 1);
