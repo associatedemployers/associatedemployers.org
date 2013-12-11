@@ -66,6 +66,7 @@ header .youtube { background: url("img/youtube.png"); right: 0; }
 	overflow:hidden;
 	margin:0;
 	word-wrap:normal;
+	padding-left: 40px;
 }
 .slide-image, .slide-text {
 	display:inline-block;
