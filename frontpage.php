@@ -62,40 +62,7 @@ Template Name: Frontpage
 		</div>
 	</div></div>
 <script>
-$(document).ready(function() {
-	$(".slide:not(.ac)").hide();
-	var i = setInterval('animateSlide()', parseFloat(<?php echo ae_options('slider_slide_speed'); ?>));
-	$(".c-circle").click(function() {
-		var indx = $(this).index(".c-circle");
-		clearInterval(i);
-		i = setInterval('animateSlide()', parseFloat(<?php echo ae_options('slider_slide_speed_after_click'); ?>));
-		overrideSlide(indx);
-	})
-});
-function animateSlide() {
-	$(".ac").toggle("clip", {'duration': '350', 'easing': 'swing'}, function() {
-		$(this).removeClass("ac");
-		if($(this).next().hasClass("slide")) {
-			$(this).next(".slide").toggle("clip", {'duration': '350', 'easing': 'swing'}).addClass("ac");
-		} else {
-			$(".slide").first().toggle("clip", {'duration': '350', 'easing': 'swing'}).addClass("ac");
-		}
-	});
-	var hvrdot = $(".c-circle").filter(".c-active");
-	var indx = ((parseFloat(hvrdot.attr("data-dtlt"))+1) <= 6) ? parseFloat(hvrdot.attr("data-dtlt")) + 1 : 1;
-	var nxthvrdot = $(".c-circle[data-dtlt='"+ indx +"']");
-	hvrdot.removeClass("c-active");
-	nxthvrdot.addClass("c-active");
-}
-function overrideSlide(indx) {
-	var s = $(".slide").eq(indx);
-	var ls = $(".ac");
-	ls.toggle("clip", {'duration': '150', 'easing': 'swing'}, function() {
-		s.toggle("clip", {'duration': '150', 'easing': 'swing'}).addClass("ac");
-	}).removeClass("ac");
-	$(".c-active").removeClass("c-active");
-	$(".c-circle").eq(indx).addClass("c-active");
-}
+function animateSlide(){$(".ac").toggle("clip",{duration:"350",easing:"swing"},function(){$(this).removeClass("ac");if($(this).next().hasClass("slide")){$(this).next(".slide").toggle("clip",{duration:"350",easing:"swing"}).addClass("ac")}else{$(".slide").first().toggle("clip",{duration:"350",easing:"swing"}).addClass("ac")}});var e=$(".c-circle").filter(".c-active");var t=parseFloat(e.attr("data-dtlt"))+1<=6?parseFloat(e.attr("data-dtlt"))+1:1;var n=$(".c-circle[data-dtlt='"+t+"']");e.removeClass("c-active");n.addClass("c-active")}function overrideSlide(e){var t=$(".slide").eq(e);var n=$(".ac");n.toggle("clip",{duration:"150",easing:"swing"},function(){t.toggle("clip",{duration:"150",easing:"swing"}).addClass("ac")}).removeClass("ac");$(".c-active").removeClass("c-active");$(".c-circle").eq(e).addClass("c-active")}$(document).ready(function(){$(".slide:not(.ac)").hide();var e=setInterval("animateSlide()",parseFloat(<?php echo ae_options('slider_slide_speed'); ?>));$(".c-circle").click(function(){var t=$(this).index(".c-circle");clearInterval(e);e=setInterval("animateSlide()",parseFloat(<?php echo ae_options('slider_slide_speed_after_click'); ?>));overrideSlide(t)})})
 </script>
 </div>
 <div class="container_12 content">
