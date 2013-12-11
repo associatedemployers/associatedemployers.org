@@ -49,97 +49,28 @@ Template Name: Frontpage
 			</div>
 		</div>
 		<div class="c-strip">
-			<div class="c-cont c-container-1"><div class="c-circle active"></div></div>
-			<div class="c-cont c-container-2"><div class="c-circle"></div></div>
-			<div class="c-cont c-container-3"><div class="c-circle"></div></div>
-			<div class="c-cont c-container-4"><div class="c-circle"></div></div>
-			<div class="c-cont c-container-5"><div class="c-circle"></div></div>
-			<div class="c-cont c-container-6"><div class="c-circle"></div></div>
+			<div class="c-cont c-container-1"><div class="c-circle c-active" data-dtlt="1"></div></div>
+			<div class="c-cont c-container-2"><div class="c-circle" data-dtlt="2"></div></div>
+			<div class="c-cont c-container-3"><div class="c-circle" data-dtlt="3"></div></div>
+			<div class="c-cont c-container-4"><div class="c-circle" data-dtlt="4"></div></div>
+			<div class="c-cont c-container-5"><div class="c-circle" data-dtlt="5"></div></div>
+			<div class="c-cont c-container-6"><div class="c-circle" data-dtlt="6"></div></div>
 		</div>
 		<div class="loginContainer">
 			<div class="loginBg"></div>
 			<a class="login" href="<?php echo home_url('/');?>membership/members-only/">Member Login</a>
 		</div>
 	</div></div>
-		<!--OLD SLIDER HTML-->
-        <!--<div class="bannerContent"><div id="slide1" class="slide act" style="top: 395px;">
-			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/webexec2.png" /></div>
-			<h2 class="headline">
-				<span class="slot1">Let Our Executive Leadership</span>
-				<span class="slot2">Training Take You to the Next Level</span>
-			</h2>
-		</div>
-		<div id="slide2" class="slide">
-			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/training05.png" /></div>
-			<h2 class="headline">
-				<span class="slot1">Professional&nbsp;&nbsp;<br/>Programs&nbsp;&nbsp;</span>
-				<span class="slot2">60+ Members Attend 2013<br/>Employment Law &nbsp;&nbsp;&nbsp;</span>
-			</h2>
-		</div>
-		<div id="slide3" class="slide">
-			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/03.png" /></div>
-			<h2 class="headline">
-				<span class="slot1">Ask About our Payroll Services</span>
-			</h2>
-		</div>
-		<div id="slide4" class="slide">
-			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/04.png" /></div>
-			<h2 class="headline">
-				<span class="slot1">Searching for Workers<br/>Compensation Savings?</span>
-				<span class="slot2">If you haven't Received a Quote from Us...<br/>You haven't Explored All Your Options</span>
-			</h2>
-		</div>
-		<div id="slide4" class="slide">
-			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/sick.jpg" /></div>
-			<h2 class="headline">
-				<span class="slot1">Associated Employers <br/>Makes House Calls!</span>
-				<span class="slot2">Is Your Organization Feeling <br/>A Little Under The Weather?</span>
-			</h2>
-		</div>
-        <div id="slide1" class="slide">
-			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/06.jpg" /></div>
-			<h2 class="headline">
-				<span class="slot1">AE's New Location</span>
-				<span class="slot2">1535 Liberty Lane, suite 110F<br/>Missoula, MT 59808</span>
-			</h2>
-		</div>
-		<div id="slide2" class="slide">
-			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/hrmetrics.jpg" /></div>
-			<h2 class="headline">
-				<span class="slot1">HR Metrics Calculator</span>
-				<span class="slot2">Members Only Area</span>
-			</h2>
-		</div>
-		</div>-->
 <script>
-	//OLD SLIDER SCRIPT
-	/*function nextSlide() { 
-		var active = $('.act'); 
-		//$('.slide').hide(); 
-
-		if($(active).next().hasClass('slide')) { 
-			$(active).animate({ top: '-395px' }, 500, function() {
-				$(active).next().animate({ top: '395px' }, 500).addClass('act'); 
-			}).removeClass('act');
-		} else { 
-			$(active).animate({ top: '-395px' }, 500, function() {
-				$('.slide:first').animate({ top: '395px' }, 500).addClass('act'); 
-			}).removeClass('act');
-		} 
-	}
-
-	$(document).ready(function(){
-		var timer = setInterval('nextSlide()', 6000);
-		$('.slide').hover(function(){ clearInterval(timer); }, function() { timer = setInterval('nextSlide()', 6000); });
-	});*/
 $(document).ready(function() {
 	$(".slide:not(.ac)").hide();
-	var i = setInterval('animateSlide()', 7000);
-	/*$(".slider").hover(function() {
+	var i = setInterval('animateSlide()', parseFloat(<?php echo ae_options('slider_slide_speed'); ?>));
+	$(".c-circle").click(function() {
+		var indx = $(this).index(".c-circle");
 		clearInterval(i);
-	}, function() {
-		setTimeout(function() {i = setInterval('animateSlide()', 7000)}, 2000);
-	});*/
+		i = setInterval('animateSlide()', parseFloat(<?php echo ae_options('slider_slide_speed_after_click'); ?>));
+		overrideSlide(indx);
+	})
 });
 function animateSlide() {
 	$(".ac").toggle("clip", {'duration': '350', 'easing': 'swing'}, function() {
@@ -150,13 +81,20 @@ function animateSlide() {
 			$(".slide").first().toggle("clip", {'duration': '350', 'easing': 'swing'}).addClass("ac");
 		}
 	});
-	var hvrdot = $(".active");
-	hvrdot.removeClass("active");
-	if(hvrdot.next().hasClass("c-circle")) {
-		hvrdot.addClass("active");
-	} else {
-		$(".c-circle").first().addClass("active");
-	}
+	var hvrdot = $(".c-circle").filter(".c-active");
+	var indx = ((parseFloat(hvrdot.attr("data-dtlt"))+1) <= 6) ? parseFloat(hvrdot.attr("data-dtlt")) + 1 : 1;
+	var nxthvrdot = $(".c-circle[data-dtlt='"+ indx +"']");
+	hvrdot.removeClass("c-active");
+	nxthvrdot.addClass("c-active");
+}
+function overrideSlide(indx) {
+	var s = $(".slide").eq(indx);
+	var ls = $(".ac");
+	ls.toggle("clip", {'duration': '150', 'easing': 'swing'}, function() {
+		s.toggle("clip", {'duration': '150', 'easing': 'swing'}).addClass("ac");
+	}).removeClass("ac");
+	$(".c-active").removeClass("c-active");
+	$(".c-circle").eq(indx).addClass("c-active");
 }
 </script>
 </div>

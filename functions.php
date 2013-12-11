@@ -25,7 +25,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 1 Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '1'
+			'priority' => '3'
 			)
 	);
 	$wp_customize->add_setting(
@@ -42,7 +42,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 1 Sub-Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '2'
+			'priority' => '4'
 			)
 	);
 	$wp_customize->add_setting(
@@ -59,7 +59,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => __('Slide 1 Image', 'associatedemployers'),
 			'section' => 'slider_section',
 			'settings' => 'ae_options[slider_slide1_image]',
-			'priority' => '3'
+			'priority' => '5'
 			)
 		)
 	);
@@ -78,7 +78,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 2 Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '4'
+			'priority' => '6'
 			)
 	);
 	$wp_customize->add_setting(
@@ -95,7 +95,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 2 Sub-Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '5'
+			'priority' => '7'
 			)
 	);
 	$wp_customize->add_setting(
@@ -112,7 +112,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => __('Slide 2 Image', 'associatedemployers'),
 			'section' => 'slider_section',
 			'settings' => 'ae_options[slider_slide2_image]',
-			'priority' => '6'
+			'priority' => '8'
 			)
 		)
 	);
@@ -131,7 +131,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 3 Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '7'
+			'priority' => '9'
 			)
 	);
 	$wp_customize->add_setting(
@@ -148,7 +148,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 3 Sub-Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '8'
+			'priority' => '10'
 			)
 	);
 	$wp_customize->add_setting(
@@ -165,7 +165,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => __('Slide 3 Image', 'associatedemployers'),
 			'section' => 'slider_section',
 			'settings' => 'ae_options[slider_slide3_image]',
-			'priority' => '9'
+			'priority' => '11'
 			)
 		)
 	);
@@ -184,7 +184,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 4 Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '10'
+			'priority' => '12'
 			)
 	);
 	$wp_customize->add_setting(
@@ -201,7 +201,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 4 Sub-Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '11'
+			'priority' => '13'
 			)
 	);
 	$wp_customize->add_setting(
@@ -218,7 +218,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => __('Slide 4 Image', 'associatedemployers'),
 			'section' => 'slider_section',
 			'settings' => 'ae_options[slider_slide4_image]',
-			'priority' => '12'
+			'priority' => '14'
 			)
 		)
 	);
@@ -237,7 +237,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 5 Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '13'
+			'priority' => '15'
 			)
 	);
 	$wp_customize->add_setting(
@@ -254,7 +254,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 5 Sub-Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '14'
+			'priority' => '16'
 			)
 	);
 	$wp_customize->add_setting(
@@ -271,7 +271,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => __('Slide 5 Image', 'associatedemployers'),
 			'section' => 'slider_section',
 			'settings' => 'ae_options[slider_slide5_image]',
-			'priority' => '15'
+			'priority' => '17'
 			)
 		)
 	);
@@ -290,7 +290,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 6 Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '16'
+			'priority' => '18'
 			)
 	);
 	$wp_customize->add_setting(
@@ -307,7 +307,7 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => 'Slide 6 Sub-Heading',
 			'section' => 'slider_section',
 			'type' => 'text',
-			'priority' => '17'
+			'priority' => '19'
 			)
 	);
 	$wp_customize->add_setting(
@@ -324,9 +324,44 @@ function associatedemployers_customize_register( $wp_customize ) {
 			'label' => __('Slide 6 Image', 'associatedemployers'),
 			'section' => 'slider_section',
 			'settings' => 'ae_options[slider_slide6_image]',
-			'priority' => '18'
+			'priority' => '20'
 			)
 		)
+	);
+	//SLIDE CONTROL
+	$wp_customize->add_setting(
+		'ae_options[slider_slide_speed]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => '7000'
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide_speed]',
+		array(
+			'label' => 'Slide Speed in Milliseconds',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '1'
+			)
+	);
+	$wp_customize->add_setting(
+		'ae_options[slider_slide_speed_after_click]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => '10000'
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide_speed_after_click]',
+		array(
+			'label' => 'Slide Speed after click in Milliseconds',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '2'
+			)
 	);
 }
 add_action( 'customize_register', 'associatedemployers_customize_register' );
