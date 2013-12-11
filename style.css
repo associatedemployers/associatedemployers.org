@@ -41,15 +41,103 @@ header .youtube { background: url("img/youtube.png"); right: 0; }
 .sidebar_bg { background: #FFF url("img/sidebar.jpg") scroll repeat-y center 0; }
 
 .bannerContainer { width: 100%; margin: 0 auto 0; overflow: hidden; position: relative; z-index: 10; height: 395px; }
-.bannerContainer .bigBanner { height: 395px; background: url("img/big-banner.png") center no-repeat; position: absolute; z-index: 10; width: 100%; }
+.bannerContainer .bigBanner { height: 395px; background: url("img/big-banner.png") center no-repeat; position: absolute; width: 100%; }
 
 .bannerContainer .bannerContent { width: 960px; margin: 0 auto 0; right: 0px; z-index: 40; height: 395px; position: relative; top: -395px; }
-.bannerContainer .bannerContent .slide { width: 960px; height: 395px; position: absolute; }
 .bannerContainer .bannerContent .img_wrap { position: absolute; top: 25px; width: 500px; height: 295px; }
 .bannerContainer .bannerContent .img_wrap img { border-radius: 10px;}
 
 .bannerContainer .bannerContent .headline { width: 45%; float: right; font-size: 36px; color: white; text-shadow: 2px 2px 3px #6393A3; text-transform: uppercase; margin-top: 60px; }
 .bannerContainer .bannerContent .headline span { float: right; display: block; padding-bottom: 20px; }
+
+.slider {
+	width:960px;
+	height:345px;
+	margin:0 auto;
+}
+.slide-image {
+	width:50%;
+	height:345px;
+	margin:0;
+}
+.slide-text {
+	width:41%;
+	height:345px;
+	overflow:hidden;
+	margin:0;
+	word-wrap:normal;
+}
+.slide-image, .slide-text {
+	display:inline-block;
+}
+.slider .slide-heading {
+	padding-top: 50px;
+	font-size:36px;
+	color:white;
+	text-shadow:2px 2px 3px #6393A3;
+	display:table-cell;
+	vertical-align:bottom;
+}
+.slider .slide-subheading {
+	font-size:18px;
+	color:white;
+	text-shadow:1px 1px 2px #6393A3;
+}
+
+.c-circle {
+	width: 15px;
+	height: 15px;
+	border-radius: 8px 8px 8px 8px;
+	-moz-border-radius: 8px 8px 8px 8px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+	background: white;
+	cursor: pointer;
+}
+
+.c-circle:hover {
+	background:#00A3FF;
+}
+
+.c-circle.active {
+	background:#00A3FF;
+}
+
+.c-cont {
+	width: 15px;
+	height: 50px;
+	position:absolute;
+	bottom:0px;
+}
+.c-container-1 {
+	right: 10px;
+	padding-bottom: 45px;
+}
+.c-container-2 {
+	right: 30px;
+	padding-bottom: 40px;
+}
+.c-container-3{
+	right: 50px;
+	padding-bottom: 35px;
+}
+.c-container-4 {
+	right: 70px;
+	padding-bottom: 30px;
+}
+.c-container-5 {
+	right: 90px;
+	padding-bottom: 25px;
+}
+.c-container-6 {
+	right: 110px;
+	padding-bottom: 20px;
+}
+.c-strip {
+	width: 960px;
+	margin:0 auto;
+	position:relative;
+}
+
 #slide1 .slot1 { padding-right: 110px; }
 #slide1 .slot2 { padding-right: 80px; }
 #slide2 .slot1 { padding-right: 157px; }
@@ -58,7 +146,6 @@ header .youtube { background: url("img/youtube.png"); right: 0; }
 #slide6 .slot1 { padding-right: 110px; }
 #slide6 .slot2 { padding-right: 80px; }
 #slide5 .img_wrap { left: 50px; }
-
 
 #slide4 .slot1 { padding-right: 70px; padding-top: 30px; }
 #slide4 .slot2 { padding-right: 100px; padding-top: 0; font-size: 22px; line-height: 22px; text-transform: none; }
@@ -69,10 +156,9 @@ header .youtube { background: url("img/youtube.png"); right: 0; }
 #slide5 .slot2 { padding-right: 0px; }
 #slide5 .img_wrap { left: 130px; }
 
-
 .bannerContainer .loginContainer { margin: 0 auto 0; width: 960px; }
-.bannerContainer .loginContainer .loginBg, .bannerContainer .loginContainer .login { width: 470px; position: absolute; right: 0px; bottom: 49px; padding: 20px 10px 16px 0; }
-.bannerContainer .loginContainer .loginBg { height: 20px; z-index: 0; box-shadow: 1px 1px 3px #7289B4; }
+.bannerContainer .loginContainer .loginBg, .bannerContainer .loginContainer .login { width: 470px; position: absolute; right: 0px; bottom: 0px; padding: 20px 10px 16px 0; }
+.bannerContainer .loginContainer .loginBg { height: 20px; z-index: -10; box-shadow: 1px 1px 3px #7289B4; }
 .bannerContainer .loginContainer .login { z-index: 40; }
 
 .loginContainer { position: relative; }
@@ -87,7 +173,6 @@ header .youtube { background: url("img/youtube.png"); right: 0; }
 .content #sidebar .loginContainer a:hover { border: none; }
 .content #sidebar .loginBg { height: 40px; }
 .content #sidebar .login { position: absolute; top: 0px; padding-top: 12px; padding-bottom: 12px; text-align: center; display: block; width: 100%; }
-
 
 #side_widgets { padding: 0; margin: 0; }
 #side_widgets ul { padding: 0; margin: 0; }

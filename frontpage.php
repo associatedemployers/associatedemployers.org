@@ -3,71 +3,117 @@
 Template Name: Frontpage
 */
 ?>
-
 <?php get_header(); ?>
 <div class="bannerContainer">
-	<div class="bigBanner"></div>
-
-	<div class="bannerContent">
-		
-              
-               <div id="slide1" class="slide act" style="top: 395px;">
-			<div class="img_wrap"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/banner/webexec2.png" /></div>
+	<div class="bigBanner"><div class="slider">
+		<div class="slide ac">
+			<div class="slide-image" style="background: url('<?php echo esc_url(ae_options('slider_slide1_image')); ?>') center no-repeat; background-size:contain;"></div>
+			<div class="slide-text">
+				<h1 class="slide-heading"><?php echo ae_options('slider_slide1_heading'); ?></h1>
+				<h2 class="slide-subheading"><?php echo ae_options('slider_slide1_subheading'); ?></h2>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="slide-image" style="background: url('<?php echo esc_url(ae_options('slider_slide2_image')); ?>') center no-repeat; background-size:contain;"></div>
+			<div class="slide-text">
+				<h1 class="slide-heading"><?php echo ae_options('slider_slide2_heading'); ?></h1>
+				<h2 class="slide-subheading"><?php echo ae_options('slider_slide2_subheading'); ?></h2>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="slide-image" style="background: url('<?php echo esc_url(ae_options('slider_slide3_image')); ?>') center no-repeat; background-size:contain;"></div>
+			<div class="slide-text">
+				<h1 class="slide-heading"><?php echo ae_options('slider_slide3_heading'); ?></h1>
+				<h2 class="slide-subheading"><?php echo ae_options('slider_slide3_subheading'); ?></h2>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="slide-image" style="background: url('<?php echo esc_url(ae_options('slider_slide4_image')); ?>') center no-repeat; background-size:contain;"></div>
+			<div class="slide-text">
+				<h1 class="slide-heading"><?php echo ae_options('slider_slide4_heading'); ?></h1>
+				<h2 class="slide-subheading"><?php echo ae_options('slider_slide4_subheading'); ?></h2>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="slide-image" style="background: url('<?php echo esc_url(ae_options('slider_slide5_image')); ?>') center no-repeat; background-size:contain;"></div>
+			<div class="slide-text">
+				<h1 class="slide-heading"><?php echo ae_options('slider_slide5_heading'); ?></h1>
+				<h2 class="slide-subheading"><?php echo ae_options('slider_slide5_subheading'); ?></h2>
+			</div>
+		</div>
+		<div class="slide">
+			<div class="slide-image" style="background: url('<?php echo esc_url(ae_options('slider_slide6_image')); ?>') center no-repeat; background-size:contain;"></div>
+			<div class="slide-text">
+				<h1 class="slide-heading"><?php echo ae_options('slider_slide6_heading'); ?></h1>
+				<h2 class="slide-subheading"><?php echo ae_options('slider_slide6_subheading'); ?></h2>
+			</div>
+		</div>
+		<div class="c-strip">
+			<div class="c-cont c-container-1"><div class="c-circle active"></div></div>
+			<div class="c-cont c-container-2"><div class="c-circle"></div></div>
+			<div class="c-cont c-container-3"><div class="c-circle"></div></div>
+			<div class="c-cont c-container-4"><div class="c-circle"></div></div>
+			<div class="c-cont c-container-5"><div class="c-circle"></div></div>
+			<div class="c-cont c-container-6"><div class="c-circle"></div></div>
+		</div>
+		<div class="loginContainer">
+			<div class="loginBg"></div>
+			<a class="login" href="<?php echo home_url('/');?>membership/members-only/">Member Login</a>
+		</div>
+	</div></div>
+		<!--OLD SLIDER HTML-->
+        <!--<div class="bannerContent"><div id="slide1" class="slide act" style="top: 395px;">
+			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/webexec2.png" /></div>
 			<h2 class="headline">
 				<span class="slot1">Let Our Executive Leadership</span>
 				<span class="slot2">Training Take You to the Next Level</span>
 			</h2>
 		</div>
 		<div id="slide2" class="slide">
-			<div class="img_wrap"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/banner/training05.png" /></div>
+			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/training05.png" /></div>
 			<h2 class="headline">
 				<span class="slot1">Professional&nbsp;&nbsp;<br/>Programs&nbsp;&nbsp;</span>
 				<span class="slot2">60+ Members Attend 2013<br/>Employment Law &nbsp;&nbsp;&nbsp;</span>
 			</h2>
 		</div>
 		<div id="slide3" class="slide">
-			<div class="img_wrap"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/banner/03.png" /></div>
+			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/03.png" /></div>
 			<h2 class="headline">
 				<span class="slot1">Ask About our Payroll Services</span>
 			</h2>
 		</div>
 		<div id="slide4" class="slide">
-			<div class="img_wrap"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/banner/04.png" /></div>
+			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/04.png" /></div>
 			<h2 class="headline">
 				<span class="slot1">Searching for Workers<br/>Compensation Savings?</span>
 				<span class="slot2">If you haven't Received a Quote from Us...<br/>You haven't Explored All Your Options</span>
 			</h2>
 		</div>
 		<div id="slide4" class="slide">
-			<div class="img_wrap"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/banner/sick.jpg" /></div>
+			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/sick.jpg" /></div>
 			<h2 class="headline">
 				<span class="slot1">Associated Employers <br/>Makes House Calls!</span>
 				<span class="slot2">Is Your Organization Feeling <br/>A Little Under The Weather?</span>
 			</h2>
 		</div>
-	                
-
-                <div id="slide1" class="slide">
-			<div class="img_wrap"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/banner/06.jpg" /></div>
+        <div id="slide1" class="slide">
+			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/06.jpg" /></div>
 			<h2 class="headline">
 				<span class="slot1">AE's New Location</span>
 				<span class="slot2">1535 Liberty Lane, suite 110F<br/>Missoula, MT 59808</span>
 			</h2>
 		</div>
-
 		<div id="slide2" class="slide">
-			<div class="img_wrap"><img src="<?php echo get_bloginfo('template_directory'); ?>/img/banner/hrmetrics.jpg" /></div>
+			<div class="img_wrap"><img src="<?php //echo get_bloginfo('template_directory'); ?>/img/banner/hrmetrics.jpg" /></div>
 			<h2 class="headline">
 				<span class="slot1">HR Metrics Calculator</span>
 				<span class="slot2">Members Only Area</span>
 			</h2>
 		</div>
-
-
-
-</div>
+		</div>-->
 <script>
-	function nextSlide() { 
+	//OLD SLIDER SCRIPT
+	/*function nextSlide() { 
 		var active = $('.act'); 
 		//$('.slide').hide(); 
 
@@ -85,17 +131,36 @@ Template Name: Frontpage
 	$(document).ready(function(){
 		var timer = setInterval('nextSlide()', 6000);
 		$('.slide').hover(function(){ clearInterval(timer); }, function() { timer = setInterval('nextSlide()', 6000); });
+	});*/
+$(document).ready(function() {
+	$(".slide:not(.ac)").hide();
+	var i = setInterval('animateSlide()', 7000);
+	/*$(".slider").hover(function() {
+		clearInterval(i);
+	}, function() {
+		setTimeout(function() {i = setInterval('animateSlide()', 7000)}, 2000);
+	});*/
+});
+function animateSlide() {
+	$(".ac").toggle("clip", {'duration': '350', 'easing': 'swing'}, function() {
+		$(this).removeClass("ac");
+		if($(this).next().hasClass("slide")) {
+			$(this).next(".slide").toggle("clip", {'duration': '350', 'easing': 'swing'}).addClass("ac");
+		} else {
+			$(".slide").first().toggle("clip", {'duration': '350', 'easing': 'swing'}).addClass("ac");
+		}
 	});
-
+	var hvrdot = $(".active");
+	hvrdot.removeClass("active");
+	if(hvrdot.next().hasClass("c-circle")) {
+		hvrdot.addClass("active");
+	} else {
+		$(".c-circle").first().addClass("active");
+	}
+}
 </script>
-	<div class="loginContainer">
-		<div class="loginBg"></div>
-		<a class="login" href="<?php echo home_url('/');?>membership/members-only/">Member Login</a>
-	</div>
 </div>
-
 <div class="container_12 content">
-
 	<div id="content" class="content grid_9">
 		<div class="loginContainer">
 			<div class="loginBg"></div>
@@ -104,8 +169,6 @@ Template Name: Frontpage
 		<?php if (have_posts()) : while (have_posts()) : the_post(); 
 		echo '<h1>Your Success is Our Business</h1>';
 		the_content(); endwhile; endif; ?>
-
-
 		<div>
 			<div class="circle humanResources"><a href="<?php echo home_url('/');?>hr"><h3>Human<br/>Resources</h3><p>Professional expert HR advice, support, research, and training.</p></a></div>
 			<div class="circle healthBenefits"><a href="<?php echo home_url('/');?>insurance"><h3>Health<br/>Benefits</h3><p>High quality employee benefits.</p></a></div>
@@ -119,8 +182,6 @@ Template Name: Frontpage
 			<div class="clear"></div>
 		</div>
 	</div>
-
-
 	<div id="sidebar" class="grid_3">
 		<div class="loginContainer">
 			<div class="loginBg"></div>
@@ -145,9 +206,7 @@ Template Name: Frontpage
 		<div class="survey">
 			<p>Are you an Executive that wants to take your skills to next level?<a href="<?php echo home_url('/');?>wp-content/uploads/2013/04/Exec-Dev-booklet-2013-.pdf" class="more">Learn More!</a></p></div>
 	</div>
-
 </div>
-
 
 <div class="frontpageFooterBgContainer">
 	<section class="testimonials container_12">
@@ -160,7 +219,4 @@ Template Name: Frontpage
 	<div class="frontPageFooterBg"></div>
 	<div class="frontPageFooterBgCont"></div>
 </div>
-
-
-
 <?php get_footer(); ?>
