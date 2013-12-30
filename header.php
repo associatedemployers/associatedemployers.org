@@ -8,8 +8,6 @@
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory'); ?>/css/reset.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('template_directory'); ?>/css/960.css" />
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.10.2.min.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-ui-1.10.3.custom.min.js"></script>
 	<!--[if lt IE 9]>
 	<script>
 		document.createElement('header');
@@ -32,13 +30,22 @@
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/css/jquery.qtip.css">
 	<script type="text/javascript" src="//cdn.sublimevideo.net/js/kr4f9svj.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
+	<!--<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-1.10.2.min.js"></script>-->
+	<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<!--<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>-->
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.qtip.min.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/js.js" type="text/javascript"></script>
+	<?php if(is_page_template('page_webinars.php')) { ?>
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+		<!-- end bootstrap -->
+	<?php } ?>
 	<?php wp_head(); ?>
 </head>
 
-<?php if(is_page_template('page_webinars.php') || is_page_template('page_sidebar.php') || is_page_template('page_member.php')) { ?>
+<?php if(is_page_template('page_sidebar.php') || is_page_template('page_member.php')) { ?>
 <body class="sidebar_bg">
 <?php } else { ?>
 <body>
