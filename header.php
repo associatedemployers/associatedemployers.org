@@ -36,6 +36,7 @@
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.qtip.min.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/js.js" type="text/javascript"></script>
 	<?php if(is_page_template('page_webinars.php')) { ?>
+		<link href="http://vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">

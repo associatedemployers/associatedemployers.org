@@ -4,16 +4,59 @@
 <div class="bannerContainerSub">
 	<div class="bigBannerSub"></div>
 </div>
-
+<div class="loader"></div>
 <div class="container_12 content">
 	<div id="content" class="content grid_9">
 		<div id="content_wrap">
-		<?php if (have_posts()) : while (have_posts()) : the_post(); the_title('<h1>', '</h1>'); the_content(); endwhile; endif; ?>
+		<?php if (have_posts()) : while (have_posts()) : the_post(); the_content(); endwhile; endif; ?>
 		<?php
 			if(current_user_can('dev_access')) { //Restrict Access to this development portion until it's complete.
 			echo ('<strong>The following content is only available to Administrators. Wordpress has detected that you are logged in as an Administrator.</strong>');
 		?>
+		<div style="width:374px; height:121px; background:url('<?php echo plugins_url('webinars/img/head.png') ?>') no-repeat center;"></div>
 			<div class="errorBox"></div>
+			<div id="account-page" class="page">
+				<h1><span class="glyphicon glyphicon-list"></span> &nbsp;Order Overview</h1>
+				<div class="alert alert-warning alert-dismissable">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					Your order expires <label class="fill-in-expiration-fromnow"></label> on <strong><label class="fill-in-expiration-date"></label></strong>.
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="list-group account-order-list"></div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel panel-info">
+							<div class="panel-heading">
+    							<h3 class="panel-title">Order Information</h3>
+							</div>
+							<div class="panel-body order-info">
+							</div>
+						</div>
+						<div class="panel panel-warning">
+							<div class="panel-heading">
+    							<h3 class="panel-title">Change the passkey associated with this order</h3>
+							</div>
+							<div class="panel-body change-psk-body">
+								<input type="text" class="form-control change-psk" id="psk-transaction" placeholder="Transaction ID" /><br />
+								<div class="left-addon">
+									<input type="password" class="form-control change-psk" id="psk-current" placeholder="Current Passkey" />
+									<span class="glyphicon glyphicon-lock"></span>
+								</div><br />
+								<div class="left-addon">
+									<input type="password" class="form-control change-psk" id="psk-new" placeholder="New Passkey" />
+									<span class="glyphicon glyphicon-lock"></span>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<p class="psk-message text-center"></p>
+								<button type="button" id="change-psk-btn" class="btn btn-primary btn-block" disabled>Change</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="video-page" class="page"></div>
 			<div id="webinar-list" class="page">
 			<style>
 				html,body {
@@ -28,6 +71,7 @@
 					display: none;
 				}
 				.page { display: none;} /* Intially hide all pages until js controller is loaded */
+				.list-group-item { word-break:break-all; }
   				.vjs-default-skin { color: #0092ff; }
  				.vjs-default-skin .vjs-play-progress,
  				.vjs-default-skin .vjs-volume-level { background-color: #ffd900 }
@@ -131,6 +175,11 @@
 					left: 0;
 					padding: 8px 10px;
 				}
+				.form-control + .glyphicon-lrg {
+					position: absolute;
+					left: 0;
+					padding: 15px 10px;
+				}
 				.left-addon {
 					position: relative;	
 				}
@@ -156,6 +205,7 @@
 				#paymentModal .invalid {
 					background-color:#FFB9B9;
 				}
+				.loader{position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999;background: url('<?php echo plugins_url('webinars/img/page-loader.gif') ?>') 50% 50% no-repeat rgb(249,249,249);}
 			</style>
 			<noscript>
 				<p>Please enable Javascript to properly show the webinars page.</p>
@@ -164,7 +214,11 @@
 			<label class="hidden-label ajaxlocation-processpayment"><?php echo plugins_url('webinars/paymentController.php') ?></label>
 			<label class="hidden-label ajaxlocation-addorder"><?php echo plugins_url('webinars/addOrder.php') ?></label>
 			<label class="hidden-label ajaxlocation-sendmail"><?php echo plugins_url('webinars/sendMail.php') ?></label>
-            <br />
+			<label class="hidden-label ajaxlocation-validatelogin"><?php echo plugins_url('webinars/login.php') ?></label>
+			<label class="hidden-label ajaxlocation-webinarinformation"><?php echo plugins_url('webinars/webinarinformation.php') ?></label>
+			<label class="hidden-label ajaxlocation-changepsk"><?php echo plugins_url('webinars/changepsk.php') ?></label>
+            <button type="button" class="btn btn-default btn-lg btn-block login-modal-btn">Purchased Webinars? Click to Login.</button>
+			<br />
 			<div class="row">
 				<div class="col-md-4">
 					<button id="toggleCart" class="btn btn-default" data-toggle="button"><span class="glyphicon glyphicon-shopping-cart"></span></button>
@@ -431,11 +485,36 @@
 						</div><!-- /.modal-content -->
 					</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
-							
-							
+				<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close login-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title"><span class="glyphicon glyphicon-film"></span> &nbsp;Login to Access Your Webinar</h4>
+							</div>
+							<div class="modal-body"><br />
+								<div class="left-addon">
+									<input type="email" class="form-control input-lg login-inputs" id="login-email" placeholder="Email Address" />
+									<span class="glyphicon glyphicon-lrg glyphicon-envelope"></span>
+								</div><br />
+								<div class="left-addon">
+									<input type="password" class="form-control input-lg login-inputs" id="login-passkey" placeholder="Webinar Passkey" />
+									<span class="glyphicon glyphicon-lrg glyphicon-lock"></span>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<p class="login-message text-center"></p><br />
+								<button type="button" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+								<button type="button" class="btn btn-default btn-block login-close" data-dismiss="modal">Cancel</button>
+							</div>
+						</div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				
 				<script src="<?php echo plugins_url('webinars/js/moment.min.js') ?>"></script>
 				<script src="<?php echo plugins_url('webinars/js/jquery.creditCardValidator.js') ?>"></script>
-				<script src="<?php echo plugins_url('webinars/js/controller.js') ?>"></script>
+				<script src="http://vjs.zencdn.net/4.2/video.js"></script>
+				<script src="<?php echo plugins_url('webinars/js/controller.min.js') ?>"></script>
 			<?php } ?> <!-- Development Restriction ending - NOTHING IN DEVELOPMENT PAST THIS POINT -->
 		</div>
 	</div>
