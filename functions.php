@@ -12,6 +12,23 @@ function associatedemployers_customize_register( $wp_customize ) {
 	);
 	//SLIDE 1
 	$wp_customize->add_setting(
+		'ae_options[slider_slide1_link]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide1_link]',
+		array(
+			'label' => 'Slide 1 Link (e.g. http://google.com)',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '3'
+			)
+	);
+	$wp_customize->add_setting(
 		'ae_options[slider_slide1_heading]',
 		array(
 			'capability' => 'edit_theme_options',
@@ -65,6 +82,23 @@ function associatedemployers_customize_register( $wp_customize ) {
 	);
 	//SLIDE 2
 	$wp_customize->add_setting(
+		'ae_options[slider_slide2_link]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide2_link]',
+		array(
+			'label' => 'Slide 2 Link (e.g. http://google.com)',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '6'
+			)
+	);
+	$wp_customize->add_setting(
 		'ae_options[slider_slide2_heading]',
 		array(
 			'capability' => 'edit_theme_options',
@@ -117,6 +151,23 @@ function associatedemployers_customize_register( $wp_customize ) {
 		)
 	);
 	//SLIDE 3
+		$wp_customize->add_setting(
+		'ae_options[slider_slide3_link]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide3_link]',
+		array(
+			'label' => 'Slide 3 Link (e.g. http://google.com)',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '9'
+			)
+	);
 	$wp_customize->add_setting(
 		'ae_options[slider_slide3_heading]',
 		array(
@@ -171,6 +222,23 @@ function associatedemployers_customize_register( $wp_customize ) {
 	);
 	//SLIDE 4
 	$wp_customize->add_setting(
+		'ae_options[slider_slide4_link]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide4_link]',
+		array(
+			'label' => 'Slide 4 Link (e.g. http://google.com)',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '12'
+			)
+	);
+	$wp_customize->add_setting(
 		'ae_options[slider_slide4_heading]',
 		array(
 			'capability' => 'edit_theme_options',
@@ -224,6 +292,23 @@ function associatedemployers_customize_register( $wp_customize ) {
 	);
 	//SLIDE 5
 	$wp_customize->add_setting(
+		'ae_options[slider_slide5_link]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide5_link]',
+		array(
+			'label' => 'Slide 5 Link (e.g. http://google.com)',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '15'
+			)
+	);
+	$wp_customize->add_setting(
 		'ae_options[slider_slide5_heading]',
 		array(
 			'capability' => 'edit_theme_options',
@@ -276,6 +361,23 @@ function associatedemployers_customize_register( $wp_customize ) {
 		)
 	);
 	//SLIDE 6
+	$wp_customize->add_setting(
+		'ae_options[slider_slide6_link]',
+		array(
+			'capability' => 'edit_theme_options',
+			'type' => 'option',
+			'default' => ''
+		)
+	);
+	$wp_customize->add_control(
+		'ae_options[slider_slide6_link]',
+		array(
+			'label' => 'Slide 6 Link (e.g. http://google.com)',
+			'section' => 'slider_section',
+			'type' => 'text',
+			'priority' => '18'
+			)
+	);
 	$wp_customize->add_setting(
 		'ae_options[slider_slide6_heading]',
 		array(
