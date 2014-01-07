@@ -243,7 +243,8 @@
 				</div>
             </div><!-- end shopping cart -->
 			<?php
-				global $wpdb; 
+				global $wpdb;
+				$upload_dir = wp_upload_dir();
 				$table_name = $wpdb->prefix . "webinars"; 
 				$sql = "SELECT * FROM $table_name ORDER BY id DESC";
 				$webinars = $wpdb->get_results($wpdb->prepare($sql));
@@ -252,7 +253,7 @@
 							foreach($webinars as $webinar) {
 								echo '<li class="webinar-list-item">
 									<div class="thumbnail webinar">
-										<img src="test.jpg" width="300" height="200">
+										<img src="'. $upload_dir['baseurl'] . "/webinar-thumbnails/" . $webinar->urlkey . ".png" . '" width="300" height="200">
 										<div class="caption content-slate">
 											<h3 class="webinar-title">' . $webinar->title . '</h3>
 											<p>' . $webinar->description . '</p>
