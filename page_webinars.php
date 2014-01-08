@@ -9,10 +9,6 @@
 	<div id="content" class="content grid_9">
 		<div id="content_wrap">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); the_content(); endwhile; endif; ?>
-		<?php
-			if(current_user_can('dev_access')) { //Restrict Access to this development portion until it's complete.
-			echo ('<strong>The following content is only available to Administrators. Wordpress has detected that you are logged in as an Administrator.</strong>');
-		?>
 		<div style="width:374px; height:121px; background:url('<?php echo plugins_url('webinars/img/head.png') ?>') no-repeat center;"></div>
 			<div class="errorBox"></div>
 			<div id="account-page" class="page">
@@ -78,7 +74,7 @@
  				.vjs-default-skin .vjs-control-bar,
  				.vjs-default-skin .vjs-big-play-button { background: rgba(0,56,64,0.63) }
  				.vjs-default-skin .vjs-slider { background: rgba(0,56,64,0.21) }
- 				.vjs-default-skin .vjs-control-bar { font-size: 200% }
+ 				.vjs-default-skin .vjs-control-bar { font-size: 100% }
 				.cartBtn {
 					-moz-box-shadow:inset 0px 1px 0px 0px #cf866c;
 					-webkit-box-shadow:inset 0px 1px 0px 0px #cf866c;
@@ -516,7 +512,6 @@
 				<script src="<?php echo plugins_url('webinars/js/jquery.creditCardValidator.js') ?>"></script>
 				<script src="http://vjs.zencdn.net/4.2/video.js"></script>
 				<script src="<?php echo plugins_url('webinars/js/controller.min.js') ?>"></script>
-			<?php } ?> <!-- Development Restriction ending - NOTHING IN DEVELOPMENT PAST THIS POINT -->
 		</div>
 	</div>
 </div>
