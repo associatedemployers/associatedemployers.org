@@ -183,7 +183,8 @@
 					background:url('<?php echo plugins_url('webinars/img/aedisabled.png') ?>') no-repeat left;
 				}
 				.activemember {
-					background:url('<?php echo plugins_url('webinars/img/aeactive.png') ?>') no-repeat left;
+					background:url('<?php echo plugins_url('webinars/img/aeactive.png') ?>') no-repeat left,
+					#FF6;
 				}
 				#company-greeting {
 					display:none;	
@@ -298,7 +299,8 @@
 											<h4><span class="glyphicon glyphicon-user"></span> &nbsp;Billing Information</h4>
 										</div>
 									</div>
-									<p class="help-block">Information below must match card</p>
+									<p class="help-block">Information below must match card</p><br />
+									<input type="text" class="form-control" id="pmt-company" placeholder="Company Name" /><br />
 									<div class="row">
 										<div class="col-md-6">
 												<input type="text" class="form-control validate" id="pmt-cc-first-name" placeholder="First name on card" />
