@@ -202,7 +202,7 @@
 				#paymentModal .invalid {
 					background-color:#FFB9B9;
 				}
-				.loader{position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999;background: url('<?php echo plugins_url('webinars/img/page-loader.gif') ?>') 50% 50% no-repeat rgb(249,249,249);}
+				.loader{position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999;background: url('<?php echo plugins_url('webinars/img/page-loader.gif') ?>') 50% 50% no-repeat rgb(249,249,249); display:none;}
 				.webinar {
 					overflow:auto;
 					height:520px;
@@ -218,7 +218,7 @@
 			<label class="hidden-label ajaxlocation-validatelogin"><?php echo plugins_url('webinars/login.php') ?></label>
 			<label class="hidden-label ajaxlocation-webinarinformation"><?php echo plugins_url('webinars/webinarinformation.php') ?></label>
 			<label class="hidden-label ajaxlocation-changepsk"><?php echo plugins_url('webinars/changepsk.php') ?></label>
-            <button type="button" class="btn btn-default btn-lg btn-block login-modal-btn">Purchased Webinars? Click to Login.</button>
+            <button type="button" class="btn btn-default btn-lg btn-block login-modal-btn">Click here to view purchased webinars</button>
 			<br />
 			<div class="row">
 				<div class="col-md-4">
@@ -241,6 +241,7 @@
 					<div class="price-difference"></div>
                 	<div class="cart-total"></div>
 					<button type="button" id="checkout-button" class="btn btn-primary btn-block">Checkout</button>
+					<p class="text-center text-warning">Member discount is applied at checkout after entering a valid AE Member Login email.</p>
 				</div>
             </div><!-- end shopping cart -->
 			<?php
@@ -283,6 +284,7 @@
 								<h4 class="modal-title">Webinar Checkout</h4>
 							</div>
 							<div class="modal-body">
+								<div class="price-difference"></div>
 								<form role="form">
 									<div class="panel panel-default">
 										<div class="panel-body">
@@ -293,7 +295,7 @@
 									<div class="left-addon">
 										<input type="email" id="pmt-email" class="form-control validate nonmember" placeholder="Email Address" data-validation-type="email" />
 									</div>
-									<p class="help-block">If you are an AE member, the AE logo will light up and apply the member discount&hellip;</p>
+									<p class="text-warning">AE Members: Email address must match your AE Member Login email address to get a discount.</p>
 									<div class="panel panel-default">
 										<div class="panel-body">
 											<h4><span class="glyphicon glyphicon-user"></span> &nbsp;Billing Information</h4>
@@ -343,7 +345,7 @@
 												<option value="MN">Minnesota</option>
 												<option value="MS">Mississippi</option>
 												<option value="MO">Missouri</option>
-												<option value="MT">Montana</option>
+												<option value="MT" selected="selected">Montana</option>
 												<option value="NE">Nebraska</option>
 												<option value="NV">Nevada</option>
 												<option value="NH">New Hampshire</option>
@@ -513,7 +515,7 @@
 						</div><!-- /.modal-content -->
 					</div><!-- /.modal-dialog -->
 				</div><!-- /.modal -->
-				
+				<script src="<?php echo plugins_url('webinars/js/placeholders.js') ?>"></script>
 				<script src="<?php echo plugins_url('webinars/js/moment.min.js') ?>"></script>
 				<script src="<?php echo plugins_url('webinars/js/jquery.creditCardValidator.js') ?>"></script>
 				<script src="http://vjs.zencdn.net/4.2/video.js"></script>
