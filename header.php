@@ -35,7 +35,7 @@
 	<!--<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>-->
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.qtip.min.js" type="text/javascript"></script>
 	<script src="<?php bloginfo('stylesheet_directory'); ?>/js/js.js" type="text/javascript"></script>
-	<?php if(is_page_template('page_webinars.php')) { ?>
+	<?php if(is_page_template('page_webinars.php') || is_page_template('page_member.php')) { ?>
 		<link href="http://vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">

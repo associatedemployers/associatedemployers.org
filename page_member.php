@@ -20,13 +20,13 @@
 			$password = unique_id();
 			$sql = "UPDATE ae_company SET password = MD5('$password') WHERE id = " . $result[0]->id;
 			$wpdb->get_results($wpdb->prepare($sql, 0));
-		} else { 
+		} else {
 			$sql = "SELECT id FROM ae_user WHERE email = '$email' AND active = 0";
 			$result = $wpdb->get_results($wpdb->prepare($sql, 0));
 			if(count($result) == 1) {
 				$found_email = true;
 				$password = unique_id();
-				$sql = "UPDATE ae_company SET password = MD5('$password') WHERE id = " . $result[0]->id;
+				$sql = "UPDATE ae_user SET password = MD5('$password') WHERE id = " . $result[0]->id;
 				$wpdb->get_results($wpdb->prepare($sql, 0));
 			}
 		}
@@ -100,22 +100,46 @@
 
 			<?php if(!$logged_in) { ?>
 					<h3>Member Login</h3>
-					<form method="post">
-						<label>Email or Username</label><input type="text" name="email" /><br/>
-						<label>Password</label><input type="password" name="pass" /><br/>
-						<input type="submit" class="btn btn-primary" value="Login" />
-					</form>
-
-					<button class="btn btn-warning" onclick="$('#recover').show(); $(this).hide();">Lost your Password?</button>
-					<form id="recover" method="post" style="display: none;" >
-						<label>Email</label><input type="text" name="email_recover" /><br/>
-						<input type="submit" name="recover" class="btn btn-primary" value="Recover Password" />
-					</form>
-					<?php if($found_email) { echo '<br/><br/><p>Your new password has been sent to your email</p>'; } ?>
-					<?php if($notfound) { echo '<br/><br/><p>Your email/username not found.</p>'; } ?>
-
-
-					<br/><br/><p>Still can't login? <a href="<?php echo home_url('/');?>contact-us">Click here</a> to contact us.</p>
+					<hr />
+					<?php if($found_email) { echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="glyphicon glyphicon-envelope"></span> An email has been sent to the address you entered containing your new password.</div>'; } ?>
+					<?php if($notfound) { echo '<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span class="glyphicon glyphicon-warning-sign"></span> That email could not be found in our system.</div>'; } ?>
+					<div class="row">
+						<div class="col-md-2"></div>
+						<div class="col-md-6">
+							<form method="post" id="login-form">
+								<div class="form-group">
+									<label>Email or Username</label><br />
+									<input type="text" class="form-control" name="email" placeholder="Email/Username" />
+								</div>
+								<div class="form-group">
+									<label>Password</label><br />
+									<input type="password" class="form-control" name="pass" placeholder="Password" />
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+								</div>
+							</form>
+							<div class="form-group">
+								<button type="button" class="btn btn-warning btn-sm btn-block rcvbtn" onclick="$('#recover').show(); $(this).hide(); $('#login-form').slideUp();">Lost your Password?</button>
+							</div>
+							<form id="recover" method="post" style="display: none;">
+								<hr />
+								<div class="form-group">
+									<label>Email</label><br />
+									<input type="text" class="form-control" name="email_recover" placeholder="Email on your account" />
+								</div>
+								<div class="form-group">
+									<button type="submit" name="recover" class="btn btn-primary btn-block btn-lg">Recover Password</button>
+								</div>
+								<div class="form-group">
+									<button type="button" class="btn btn-default btn-sm btn-block" onclick="$('#recover').hide(); $('.rcvbtn').show(); $('#login-form').slideDown();">Cancel</button>
+								</div>
+							</form>
+							<hr />
+							<p class="text-center text-muted">Having problems logging in? <a href="<?php echo home_url('/');?>contact-us">Click here</a> to contact us.</p>
+						</div>
+						<div class="col-md-2"></div>
+					</div>
 			<?php } else { ?>
 				<?php $id = $wp_query->query_vars['user_edit'];
 					if(is_page('add-sub-accounts')) { 
